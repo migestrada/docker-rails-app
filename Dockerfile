@@ -5,6 +5,9 @@ RUN apk add --virtual build-dependencies build-base
 RUN apk add postgresql-dev tzdata
 WORKDIR /myapp
 
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 COPY Gemfile /myapp/Gemfile
