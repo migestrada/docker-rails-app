@@ -1,11 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
+// Material
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+// Project
+import { mapStateToProps, mapDispatchToProps } from '../Untils/modules';
+import * as appActions from '../redux/modules/app';
 
-const App = (props) => {
+const App = props => {
+  const {
+    actions: {
+      getStateFromApi,
+    }
+  } = props;
+
   return <Grid container justify="center">
-    <Grid item xs={12}><Typography>AAAAAAAAAAAA</Typography></Grid>
+    <Grid item xs={12}><Button
+      onClick={getStateFromApi}
+    >AAAAAAAAAAAA</Button></Grid>
   </Grid>;
 };
 
-export default App;
+export default connect(mapStateToProps('App'), mapDispatchToProps({
+  ...appActions,
+}))(App);
