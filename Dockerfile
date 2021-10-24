@@ -12,6 +12,7 @@ EXPOSE 3000
 
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
+RUN gem update bundler
 RUN bundle install
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
