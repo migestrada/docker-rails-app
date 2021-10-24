@@ -1,4 +1,4 @@
-import createAction from '../../Untils/createAction';
+import createAction from '../../untils/createAction';
 
 export const GET_STATE_FROM_API = 'application/boilerplate/GET_STATE_FROM_API';
 

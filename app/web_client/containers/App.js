@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 // Project
-import { mapStateToProps, mapDispatchToProps } from '../Untils/modules';
+import { mapStateToProps, mapDispatchToProps } from '../untils/modules';
 import * as appActions from '../redux/modules/app';
 
 const App = props => {
