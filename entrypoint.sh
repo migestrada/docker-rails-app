@@ -2,6 +2,7 @@
 # ^^^ this script only uses POSIX shell features
 
 # Compile the assets
+bundle install
 bundle exec rake assets:precompile
 
 # Clean a stale pid file

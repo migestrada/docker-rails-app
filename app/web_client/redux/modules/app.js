@@ -1,11 +1,12 @@
+import { fromJS } from 'immutable';
 import createAction from '../../untils/createAction';
 
 export const GET_STATE_FROM_API = 'application/app/GET_STATE_FROM_API';
 export const SHOW_ERROR = 'application/app/SHOW_ERROR';
 
-const initialState = {
+const initialState = fromJS({
   currentDate: new Date(),
-};
+});
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {

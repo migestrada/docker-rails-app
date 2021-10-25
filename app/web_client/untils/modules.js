@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux/lib/redux';
 export const mapStateToProps = (...stateNames) => state =>
   stateNames.reduce((acum, name) => ({
     ...acum,
-    [`${name.toLowerCase()}`]: state[`${name.toLowerCase()}Reducer`],
-  }), { app: state.appReducer });
+    ...state[`${name.charAt(0).toLowerCase()}${name.slice(1)}Reducer`].toJS(),
+  }), { app: state.appReducer.toJS() });
 
 export const mapDispatchToProps = actionsObj =>
   dispatch => ({

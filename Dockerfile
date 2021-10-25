@@ -3,6 +3,7 @@ RUN apk update
 RUN apk add yarn postgresql-client
 RUN apk add --virtual build-dependencies build-base
 RUN apk add postgresql-dev tzdata
+RUN apk add git
 WORKDIR /myapp
 
 COPY entrypoint.sh /usr/bin/

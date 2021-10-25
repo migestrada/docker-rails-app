@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 // Project
 import { mapStateToProps, mapDispatchToProps } from '../untils/modules';
 import * as appActions from '../redux/modules/app';
+import SignUp from './SignUp';
 
 const App = props => {
   const {
@@ -15,12 +16,10 @@ const App = props => {
   } = props;
 
   return <Grid container justify="center">
-    <Grid item xs={12}><Button
-      onClick={getStateFromApi}
-    >AAAAAAAAAAAA</Button></Grid>
+    <SignUp />
   </Grid>;
 };
 
-export default connect(mapStateToProps('App'), mapDispatchToProps({
+export default connect(mapStateToProps(), mapDispatchToProps({
   ...appActions,
 }))(App);
