@@ -2,7 +2,10 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-const url = `${location.origin}/api/v${process.env.VERSION || 1}`;
+const apiUrl = `${location.origin}/api/v${process.env.VERSION || 1}`;
+const noApiUrl = `${location.origin}`;
+
+const getUrl = noApi => noApi ? noApiUrl : apiUrl;
 
 const options = (method, body = undefined) => ({
   method: method || 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -13,4 +16,10 @@ const options = (method, body = undefined) => ({
   body,
 });
 
-export const get = path => () => fetch(`${url}${path}`, options());
+export const get = (path, body = undefined, noApi = false) => {
+  return () => fetch(`${getUrl(noApi)}${path}`, options());
+}
+
+export const post = (path, body = undefined, noApi = false) => {
+  return () => fetch(`${getUrl(noApi)}${path}`, options('POST', body))
+};
