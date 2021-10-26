@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 
 import rootReducer from './modules';
-import appSaga from './sagas/app';
+import rootSaga from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,6 +12,6 @@ const store = createStore(
   applyMiddleware(sagaMiddleware, process.env.NODE_ENV === 'development' && logger),
 );
 
-sagaMiddleware.run(appSaga);
+sagaMiddleware.run(rootSaga);
 
 export default store;

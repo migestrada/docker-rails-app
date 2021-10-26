@@ -1,8 +1,8 @@
 import decamelize from 'decamelize-keys-deep';
 import { call, put } from 'redux-saga/effects';
 
-export default function* controlledCall(method, path, body, successAction, failAction) {
-  const toYield = method(path)
+export default function* controlledCall(method, path, body = undefined, successAction, failAction,  noApi = false) {
+  const toYield = method(path, body, noApi)
   const result = yield body ? call(toYield, path, decamelize(body)) : call(toYield, path)
   const nextAction = result.ok ? successAction : failAction
 
