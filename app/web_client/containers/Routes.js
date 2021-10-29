@@ -6,26 +6,16 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Login from './Login'
 
-const routes = [
-  { path: '/', name: 'Login' },
-];
-
-export default function App() {
+const Routes = props => {
   return <Router>
     <Switch>
-      {
-        routes.map(route => import())
-      }
-      <Route path="/about">
-        <About />
-      </Route>
-      <Route path="/users">
-        <Users />
-      </Route>
       <Route path="/">
-        <Home />
+        <Login />
       </Route>
     </Switch>
   </Router>;
 }
+
+export default Routes;

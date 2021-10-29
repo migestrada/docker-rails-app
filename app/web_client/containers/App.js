@@ -6,18 +6,25 @@ import Button from '@mui/material/Button';
 // Project
 import { mapStateToProps, mapDispatchToProps } from '../untils/modules';
 import * as appActions from '../redux/modules/app';
-import SignUp from './SignUp';
+import Routes from './Routes'
 
 const App = props => {
   const {
     actions: {
-      getStateFromApi,
+      logout,
     }
   } = props;
 
-  return <Grid container justify="center">
-    <SignUp />
-  </Grid>;
+  return <React.Fragment>
+    <Button
+      onClick={logout}
+    >
+      Salir
+    </Button>
+    <Grid container justify="center">
+      <Routes />
+    </Grid>
+  </React.Fragment>
 };
 
 export default connect(mapStateToProps(), mapDispatchToProps({
