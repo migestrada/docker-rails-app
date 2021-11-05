@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'web_client#index'
 
   namespace :api do
