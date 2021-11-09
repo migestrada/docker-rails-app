@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: 'users/sessions' }
+
   root 'web_client#index'
+
+  devise_for :users, skip: :all
 
   namespace :api do
     namespace :v1 do

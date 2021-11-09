@@ -13,10 +13,12 @@ function* login() {
   yield takeEvery(LOGIN, function* (action) {
     const { email, password } = action.controls;
     const body = decamelize({
-      email,
-      password
+      session: {
+        email,
+        password
+      }
     })
-    yield controlledCall(post, '/users/sign_in', body, loginSuccess, loginFail)
+    yield controlledCall(post, '/sessions', body, loginSuccess, loginFail)
   });
 }
 
