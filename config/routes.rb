@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-
   root 'web_client#index'
 
-  devise_for :users, skip: :all
+  devise_for :users, skip: %i[sessions]
+  
 
   namespace :api do
     namespace :v1 do
       get '/app', to: 'app#index'
 
-      # Users
-      get '/users', to: 'users#index'
-      post '/users', to: 'users#create'
+      # Login
+      devise_scope :user do
+        post '/login', to: 'sessions#create'
+        delete '/logout', to: 'sessions#destroy'
+      end
     end
   end
 end
