@@ -18,14 +18,5 @@ module Myapp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    Rails.application.config.middleware.use Rack::Cors do
-        allow do
-        origins 'localhost:3001'
-        resource '*',
-          headers: :any,
-          expose: ['access-token', 'client', 'expiry'],
-          methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      end
-    end
   end
 end

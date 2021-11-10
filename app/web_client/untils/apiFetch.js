@@ -1,5 +1,6 @@
 const headers = {
   'Content-Type': 'application/json',
+  //'Authorization': `Bearer ${localStorage.getItem('token')}`
 };
 
 const apiUrl = `${location.origin}/api/v${process.env.VERSION || 1}`;

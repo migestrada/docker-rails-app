@@ -17,7 +17,9 @@ class Api::V1::SessionsController < Devise::SessionsController
                 }
                else
                 response = {
-                  json: resource,
+                  json: {
+                    message: 'Iniciaste sesion correctamente!'
+                  },
                   status: 200,
                 }
                end

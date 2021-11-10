@@ -21,8 +21,8 @@ function* login() {
     const result = yield call(post, '/login', body)
     const data = yield result.json()
     
-    console.log('result', yield result.headers)
     if (result.ok) {
+      localStorage.setItem('token', result.headers.get('Authorization').split(' ')[1])
       yield put(loginSuccess(data))
     } else {
       yield put(loginFail(data))
