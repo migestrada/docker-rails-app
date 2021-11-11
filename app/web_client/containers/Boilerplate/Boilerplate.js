@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 // Project
 import { mapStateToProps, mapDispatchToProps } from '../../untils/modules';
-import * as boilerplateActions from '../redux/modules/boilerplate';
+import * as boilerplateActions from '../../redux/modules/boilerplate';
 
 const Boilerplate = props => {
   console.log('props', props);

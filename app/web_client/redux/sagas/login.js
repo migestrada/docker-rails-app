@@ -18,7 +18,7 @@ function* login() {
         password
       }
     })
-    const result = yield call(post, '/login', body)
+    const result = yield call(post, '/login', body, true)
     const data = yield result.json()
     
     if (result.ok) {

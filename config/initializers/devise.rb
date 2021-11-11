@@ -310,13 +310,17 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.jwt do |jwt|
-    jwt.secret = ENV['JWT_SECRET']
+    jwt.secret = 'f215cd4bcf9ccb5e9d652843d1c85d645a2b0fd06687d8e74b81cd3b2de779478db8b8b666818a925f3e99c8cce345f7b42de9c702db4e25a40edc20dbfa9d80'
     jwt.dispatch_requests = [
-      ['POST', %r{^/api/v1/login$}]
+      ['POST', %r{^/login$}]
     ]
     jwt.revocation_requests = [
-      ['DELETE', %r{^/api/v1/logout$}]
+      ['DELETE', %r{^/logout$}]
     ]
     jwt.expiration_time = 1.day.to_i
+  end
+
+  config.warden do |manager|
+    manager.failure_app = CustomFailture
   end
 end

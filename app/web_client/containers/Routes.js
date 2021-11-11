@@ -1,21 +1,24 @@
 import React from "react";
 import { } from 'fs';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Login from './Login'
+import Boilerplate from './Boilerplate'
 
 const Routes = props => {
-  return <Router>
+  return <BrowserRouter>
     <Switch>
-      <Route path="/">
+      <Route path="/login">
         <Login />
       </Route>
+      <Route path="/app">
+        <Boilerplate />
+      </Route>
     </Switch>
-  </Router>;
+</BrowserRouter>;
 }
 
 export default Routes;

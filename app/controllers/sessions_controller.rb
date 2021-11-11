@@ -1,6 +1,6 @@
-class Api::V1::SessionsController < Devise::SessionsController
+class SessionsController < Devise::SessionsController
   respond_to :json
-  protect_from_forgery prepend: true
+  protect_from_forgery
 
   private
 
