@@ -24,7 +24,7 @@ function* logout() {
 
     const result = yield call(del, '/sign_out', body, true)
     if (result.ok) {
-      yield put(logoutSuccess())
+      window.location.replace('/login')
     } else {
       yield put(logoutFail())
     }

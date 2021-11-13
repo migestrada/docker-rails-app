@@ -25,7 +25,7 @@ function* login() {
     const data = yield result.json()
     
     if (result.ok) {
-      yield put(loginSuccess(data))
+      window.location.replace('/')
     } else {
       yield put(loginFail(data))
     }
