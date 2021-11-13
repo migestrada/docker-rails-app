@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 // Material
 import Grid from '@mui/material/Grid';
@@ -11,11 +11,12 @@ import { mapStateToProps, mapDispatchToProps } from '../../untils/modules';
 import * as loginActions from '../../redux/modules/login';
 
 const Login = props => {
+  const [token, setToken] = useState('')
   const {
     formControls,
     formControls: {
       email,
-      password,
+      password
     },
     actions: {
       login,
@@ -49,7 +50,7 @@ const Login = props => {
         <Button
           fullWidth
           variant="contained"
-          onClick={() => login(formControls)}
+          onClick={() => login(formControls, )}
           disabled={!(email && password)}
         >
           Iniciar

@@ -10,7 +10,7 @@ const initialState = fromJS({
   loading: false,
   formControls: {
     email: '',
-    password: '',
+    password: ''
   }
 });
 

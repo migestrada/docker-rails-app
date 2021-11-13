@@ -2,6 +2,7 @@ import { takeEvery, fork, all } from 'redux-saga/effects';
 import { call, put } from 'redux-saga/effects';
 import { get, post, del} from '../../untils/apiFetch';
 import decamelize from 'decamelize-keys-deep';
+import authenticityToken from '../../untils/authenticityToken'
 
 import {
   LOGIN,
@@ -15,14 +16,15 @@ function* login() {
     const body = decamelize({
       user: {
         email,
-        password
-      }
+        password,
+        rememberMe: 0
+      },
+      authenticityToken: authenticityToken()
     })
-    const result = yield call(post, '/login', body, true)
+    const result = yield call(post, '/sign_in', body, true)
     const data = yield result.json()
     
     if (result.ok) {
-      localStorage.setItem('token', result.headers.get('Authorization').split(' ')[1])
       yield put(loginSuccess(data))
     } else {
       yield put(loginFail(data))

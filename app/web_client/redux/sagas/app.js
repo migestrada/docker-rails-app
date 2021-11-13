@@ -1,6 +1,8 @@
 import { takeEvery, fork, all, call, put } from 'redux-saga/effects';
+import decamelize from 'decamelize-keys-deep';
 import controlledCall from '../../untils/controlledCall';
 import { get, del } from '../../untils/apiFetch';
+import authenticityToken from '../../untils/authenticityToken';
 import {
   GET_STATE_FROM_API,
   LOGOUT,
@@ -16,9 +18,12 @@ function* getStateFromApi() {
 
 function* logout() {
   yield takeEvery(LOGOUT, function* (action) {
-    const result = yield call(del, '/logout')
+    const body = decamelize({
+      authenticityToken: authenticityToken()
+    })
+
+    const result = yield call(del, '/sign_out', body, true)
     if (result.ok) {
-      localStorage.removeItem('token')
       yield put(logoutSuccess())
     } else {
       yield put(logoutFail())

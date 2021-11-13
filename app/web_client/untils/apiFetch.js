@@ -18,8 +18,8 @@ const options = (method, body = undefined) => ({
   body: JSON.stringify(body),
 });
 
-export const get = (path, body = undefined, noApi = false) => fetch(getUrl(noApi, path), options());
+export const get = (path, body = undefined, noApi = false) => fetch(getUrl(noApi, path), options('GET'));
 
 export const post = (path, body = undefined, noApi = false) => fetch(getUrl(noApi, path), options('POST', body));
 
-export const del = (path, body = undefined, noApi = false) => fetch(getUrl(noApi, path), options('DELETE'));
+export const del = (path, body = undefined, noApi = false) => fetch(getUrl(noApi, path), options('DELETE', body));
