@@ -58,6 +58,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Devise
 gem 'devise', '~> 4.8'
 
-# Devise jwt
-gem 'devise-jwt', '~> 0.9.0'
-
