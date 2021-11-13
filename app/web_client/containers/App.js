@@ -15,15 +15,17 @@ const App = props => {
     }
   } = props;
 
+
   return <React.Fragment>
-    <Button
-      onClick={logout}
-    >
-      Salir
-    </Button>
-    <Grid container justify="center">
-      <Routes />
-    </Grid>
+    {
+      window.location.pathname !== '/login' &&
+      <Button
+        onClick={logout}
+      >
+        Salir
+      </Button>
+    }
+    <Routes />
   </React.Fragment>
 };
 

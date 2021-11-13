@@ -14,7 +14,7 @@ const Routes = props => {
       <Route path="/login">
         <Login />
       </Route>
-      <Route path="/app">
+      <Route path="/">
         <Boilerplate />
       </Route>
     </Switch>

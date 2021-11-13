@@ -6,13 +6,14 @@ import Typography from '@mui/material/Typography';
 // Project
 import { mapStateToProps, mapDispatchToProps } from '../../untils/modules';
 import * as boilerplateActions from '../../redux/modules/boilerplate';
+import RootContainer from '../../components/commons/RootContainer'
 
 const Boilerplate = props => {
-  console.log('props', props);
+  return <RootContainer
+    title="Boilerplate"
+  >
 
-  return <Grid container justify="center">
-    <Grid item xs={12}><Typography>Boilerplate</Typography></Grid>
-  </Grid>;
+  </RootContainer>;
 };
 
 export default connect(mapStateToProps('Boilerplate'), mapDispatchToProps({
