@@ -1,8 +1,8 @@
 import { takeEvery, fork, all } from 'redux-saga/effects';
-import { call, put } from 'redux-saga/effects';
 import { get, post, del} from '../../untils/apiFetch';
 import decamelize from 'decamelize-keys-deep';
 import authenticityToken from '../../untils/authenticityToken'
+import controlledCall from '../../untils/controlledCall';
 
 import {
   LOGIN,
@@ -21,15 +21,8 @@ function* login() {
       },
       authenticityToken: authenticityToken()
     })
-    const result = yield call(post, '/sign_in', body, true)
-    const data = yield result.json()
     
-    if (result.ok) {
-      window.location.replace('/')
-    } else {
-      yield put(loginFail(data))
-    }
-
+    yield controlledCall(post, '/sign_in', body, () => window.location.replace('/'), loginFail, true)
   });
 }
 

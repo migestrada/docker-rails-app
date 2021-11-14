@@ -1,9 +1,17 @@
 import decamelize from 'decamelize-keys-deep';
 import { call, put } from 'redux-saga/effects';
+import { showError } from '../redux/modules/app';
 
 export default function* controlledCall(toYield, path, body = undefined, successAction, failAction,  noApi = false) {
   const result = yield body ? call(toYield, path, decamelize(body), noApi) : call(toYield, path, noApi)
-  const nextAction = result.ok ? successAction : failAction
   const data = yield result.json()
-  if (nextAction) yield put(nextAction(data))
+
+  if (result.ok) {
+    yield put(successAction(data))
+  } else {
+    yield put(failAction(data))
+    if (data.error && typeof data.error === 'string') {
+      yield put(showError(data.error))
+    }
+  }
 }
