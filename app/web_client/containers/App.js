@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 // Project
 import { mapStateToProps, mapDispatchToProps } from '../untils/modules';
 import * as appActions from '../redux/modules/app';
-import Routes from './Routes'
+import Router from './Router'
 
 const App = props => {
   const {
@@ -25,7 +25,7 @@ const App = props => {
         Salir
       </Button>
     }
-    <Routes />
+    <Router />
   </React.Fragment>
 };
 
