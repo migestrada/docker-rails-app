@@ -2,24 +2,10 @@ import React from 'react';
 // Material
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-// Icons
-import AssignmentIcon from '@mui/icons-material/Assignment';
-
-const createMenu = (icon, label, path) =>
-  ({
-    icon,
-    label,
-    path,
-    onClick: path ? () => window.location.replace(path) : false
-  })
-
-const menus = [
-  createMenu(<AssignmentIcon />, 'Facturas', '/invoices'),
-]
+import ListSubheader from '@mui/material/ListSubheader';
+// Project
+import Menu from './Menu';
+import { allMenus, allSubMenus } from './menuList'
 
 const MenuGroup = props => {
   const {
@@ -33,24 +19,20 @@ const MenuGroup = props => {
       onClose={onClose}
     >
       <List
-        style={{ minWidth: '200px'}}
+        sx={{ minWidth: '200px', maxWidth: 360, bgcolor: 'background.paper' }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader component="div" id="nested-list-subheader">
+            Navegacion
+          </ListSubheader>
+        }
       >
         {
-          menus.map(menu =>
-            <ListItem
-              button
-              onClick={menu.onClick}
-              key={menu.path || menu.label}
-            >
-              {
-                menu.icon && 
-                <ListItemIcon>
-                  {menu.icon}
-                </ListItemIcon>
-              }
-              <ListItemText primary={menu.label} />
-            </ListItem>
-          )
+          allMenus.map(menu => {
+            const subMenus = allSubMenus.filter(subMenu => subMenu.menuName === menu.label)
+            return <Menu key={menu.path || menu.label} subMenus={subMenus} menu={menu} />
+          })
         }
       </List>
     </Drawer>
