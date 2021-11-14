@@ -7,7 +7,6 @@ import {
 // Project
 import routes from './routes'
 
-console.log('routes', routes)
 const Router = props =>
   <BrowserRouter>
     <Switch>
