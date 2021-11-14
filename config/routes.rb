@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
-  root 'web_client#login'
+  root 'web_client#index'
   get '/login', to: 'web_client#login'
 
   get '/app', to: 'web_client#index'
@@ -18,4 +18,6 @@ Rails.application.routes.draw do
       get '/app', to: 'app#index'
     end
   end
+
+  match '*path' => redirect('/')   unless Rails.env.development?
 end

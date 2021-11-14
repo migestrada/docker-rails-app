@@ -15,5 +15,6 @@ COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN gem update bundler
 RUN bundle install
+RUN yarn install
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
