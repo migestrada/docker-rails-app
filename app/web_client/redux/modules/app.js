@@ -6,7 +6,6 @@ export const SHOW_ERROR = 'application/app/SHOW_ERROR';
 export const HIDDE_ERROR = 'application/app/HIDDE_ERROR';
 export const LOGOUT = 'application/app/LOGOUT';
 export const LOGOUT_SUCCESS = 'application/app/LOGOUT_SUCCESS';
-export const TOGGLE_NAVIGATOR = 'application/app/TOGGLE_NAVIGATOR';
 
 const initialState = fromJS({
   currentDate: new Date(),
@@ -29,9 +28,6 @@ export const reducer = (state = initialState, action) => {
     return state
       .setIn(['errorSnackBar', 'open'], false)
       .setIn(['errorSnackBar', 'message'], '')
-  case TOGGLE_NAVIGATOR:
-    return state
-      .updateIn(['navigator', 'open'], currentState => action.newState === undefined ? !currentState : Boolean(action.newState))
   default:
     return state;
   }
@@ -42,4 +38,3 @@ export const showError = createAction(SHOW_ERROR, 'message');
 export const hiddeError = createAction(HIDDE_ERROR);
 export const logout = createAction(LOGOUT);
 export const logoutSuccess = createAction(LOGOUT_SUCCESS, 'result');
-export const toggleNavigator = createAction(TOGGLE_NAVIGATOR, 'newState');

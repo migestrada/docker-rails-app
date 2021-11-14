@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 // Project
-import RootContainer from '../../components/commons/RootContainer';
+import CustomContainer from '../../components/commons/CustomContainer';
 import { mapStateToProps, mapDispatchToProps } from '../../untils/modules';
 import * as signUpActions from '../../redux/modules/signUp';
 
@@ -24,7 +24,7 @@ const SignUp = props => {
     }
   } = props;
 
-  return <RootContainer
+  return <CustomContainer
     title="SIGN UP"
   >
     <Grid container spacing={3}>
@@ -74,7 +74,7 @@ const SignUp = props => {
         </Button>
       </Grid>
     </Grid>
-  </RootContainer>;
+  </CustomContainer>;
 };
 
 export default connect(mapStateToProps('SignUp'), mapDispatchToProps({

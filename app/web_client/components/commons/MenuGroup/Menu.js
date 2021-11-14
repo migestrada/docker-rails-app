@@ -24,7 +24,7 @@ const Menu = props => {
   const hasSubMenus = subMenus.length > 0;
 
   return <React.Fragment>
-    <ListItemButton key={key} onClick={hasSubMenus ? toggleOpen : undefined}>
+    <ListItemButton key={key} onClick={hasSubMenus ? toggleOpen : menu.onClick}>
       {
         menu.icon && 
         <ListItemIcon>

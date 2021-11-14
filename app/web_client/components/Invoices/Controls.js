@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography'
 
 const Controls = props => {
   return <Grid container spacing={3}>
-    <Typography>Controls</Typography>
   </Grid>
 };
 

@@ -21,13 +21,7 @@ const App = props => {
     }
   } = props;
 
-  const isNotLoginPath = window.location.pathname !== '/login';
-
   return <React.Fragment>
-    {
-      isNotLoginPath &&
-      <Navigator {...props} />
-    }
     <Router />
 
     <Snackbar

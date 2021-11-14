@@ -4,6 +4,7 @@ import { reducer as boilerplateReducer } from './boilerplate';
 import { reducer as loginReducer } from './login';
 import { reducer as signUpReducer } from './signUp';
 import { reducer as invoicesReducer } from './invoices';
+import { reducer as sizesReducer } from './sizes';
 
 const rootReducer = combineReducers({
   appReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   loginReducer,
   signUpReducer,
   invoicesReducer,
+  sizesReducer,
 });
 
 export default rootReducer;

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/app', to: 'web_client#index'
   get '/invoices', to: 'web_client#index'
   get '/boilerplate', to: 'web_client#index'
+  get '/sizes', to: 'web_client#index'
 
   devise_scope :user do
     post 'sign_in', to: 'users/sessions#create'
@@ -16,8 +17,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/app', to: 'app#index'
+      get '/sizes', to: 'sizes#index'
     end
   end
 
-  match '*path' => redirect('/')   unless Rails.env.development?
+  match '*path' => redirect('/login')   unless Rails.env.development?
 end

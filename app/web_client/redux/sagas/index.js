@@ -3,6 +3,7 @@ import appSaga from './app';
 import signUpSaga from './signUp';
 import loginSaga from './login';
 import invoicesSaga from './invoices';
+import sizesSaga from './sizes';
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     fork(signUpSaga),
     fork(loginSaga),
     fork(invoicesSaga),
+    fork(sizesSaga),
   ])
 }

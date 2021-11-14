@@ -6,14 +6,15 @@ import Typography from '@mui/material/Typography';
 // Project
 import { mapStateToProps, mapDispatchToProps } from '../../untils/modules';
 import * as boilerplateActions from '../../redux/modules/boilerplate';
-import RootContainer from '../../components/commons/RootContainer'
+import CustomContainer from '../../components/commons/CustomContainer'
 
 const Boilerplate = props => {
-  return <RootContainer
+  return <CustomContainer
+    logout={props.actions.logout}
     title="Boilerplate"
   >
 
-  </RootContainer>;
+  </CustomContainer>;
 };
 
 export default connect(mapStateToProps('Boilerplate'), mapDispatchToProps({

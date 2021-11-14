@@ -22,7 +22,7 @@ function* login() {
       authenticityToken: authenticityToken()
     })
     
-    yield controlledCall(post, '/sign_in', body, () => window.location.replace('/'), loginFail, true)
+    yield controlledCall(post, '/sign_in', body, () => window.location.replace('/invoices'), loginFail, true)
   });
 }
 

@@ -1,4 +1,4 @@
-class Api::V1::AppController < ActionController::Base
+class Api::V1::AppController < ApplicationController
 
   def index
     response = {

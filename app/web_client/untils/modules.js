@@ -1,3 +1,4 @@
+import { logout } from '../../web_client/redux/modules/app';
 import { bindActionCreators } from 'redux/lib/redux';
 
 export const mapStateToProps = (...stateNames) => state =>
@@ -8,5 +9,8 @@ export const mapStateToProps = (...stateNames) => state =>
 
 export const mapDispatchToProps = actionsObj =>
   dispatch => ({
-    actions: bindActionCreators(actionsObj, dispatch),
+    actions: bindActionCreators({
+      ...actionsObj,
+      logout
+    }, dispatch),
   });
