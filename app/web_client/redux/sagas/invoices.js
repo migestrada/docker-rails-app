@@ -7,16 +7,16 @@ import {
   GET_STATE_FROM_API,
   getStateFromApiSuccess,
   getStateFromApiFail
-} from '../modules/boilerplate';
+} from '../modules/invoices';
 
 function* getStateFromApi() {
   yield takeEvery(GET_STATE_FROM_API, function* (action) {
     const body = decamelize({})
-    yield controlledCall(post, '/boilerplate', body, getStateFromApiSuccess, getStateFromApiFail)
+    yield controlledCall(post, '/invoices', body, getStateFromApiSuccess, getStateFromApiFail)
   });
 }
 
-export default function* boilerplateSaga() {
+export default function* invoicesSaga() {
   yield all([
     fork(getStateFromApi),
   ]);

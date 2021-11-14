@@ -1,9 +1,9 @@
 import { fromJS } from 'immutable';
 import createAction from '../../untils/createAction';
 
-export const GET_STATE_FROM_API = 'application/boilerplate/GET_STATE_FROM_API';
-export const GET_STATE_FROM_API_SUCCESS = 'application/boilerplate/GET_STATE_FROM_API_SUCCESS';
-export const GET_STATE_FROM_API_FAIL = 'application/boilerplate/GET_STATE_FROM_API_FAIL';
+export const GET_STATE_FROM_API = 'application/invoices/GET_STATE_FROM_API';
+export const GET_STATE_FROM_API_SUCCESS = 'application/invoices/GET_STATE_FROM_API_SUCCESS';
+export const GET_STATE_FROM_API_FAIL = 'application/invoices/GET_STATE_FROM_API_FAIL';
 
 const initialState = fromJS({
   currentDate: new Date(),

@@ -9,11 +9,11 @@ import Slide from '@mui/material/Slide';
 import { mapStateToProps, mapDispatchToProps } from '../untils/modules';
 import * as appActions from '../redux/modules/app';
 import Router from './Router'
+import Navigator from '../components/commons/Navigator';
 
 const App = props => {
   const {
     actions: {
-      logout,
       hiddeError
     },
     app: {
@@ -21,14 +21,12 @@ const App = props => {
     }
   } = props;
 
+  const isNotLoginPath = window.location.pathname !== '/login';
+
   return <React.Fragment>
     {
-      window.location.pathname !== '/login' &&
-      <Button
-        onClick={logout}
-      >
-        Salir
-      </Button>
+      isNotLoginPath &&
+      <Navigator {...props} />
     }
     <Router />
 
