@@ -22,7 +22,7 @@ const Login = props => {
     }
   } = props;
 
-  return <Grid style={{ minHeight: '100vh' }} container justifyContent="center" alignItems="center">
+  return <Grid style={{ minHeight: '90vh' }} container justifyContent="center" alignItems="center">
     <Grid item container spacing={3}>
       <Grid container item justifyContent="center">
         <Grid item xs={12}>
